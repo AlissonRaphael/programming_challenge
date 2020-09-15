@@ -1,4 +1,4 @@
-# Algorithms: basic to advanced
+# Programming Challenge: Casic to Advanced
 
 ![GitHub](https://img.shields.io/github/license/AlissonRaphael/programming_challenge)
 ![node-lts](https://img.shields.io/node/v-lts/node-v)
