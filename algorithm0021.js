@@ -31,18 +31,11 @@ interface.question('Valor: R$ ', response => {
 
   [100, 50, 20, 10, 5, 2, 1, 0.5, 0.25, 0.10, 0.05].map(money => quantifier(money))
 
-  banknotesQuantity.map(money => {
-    if(money[0] > 1){
-      if(money[0] === 100) console.log('Notas:')
-      console.log(`${money[1]} nota(s) de R$ ${money[0].toFixed(2)}`)
-    } else {
-      if(money[0] === 1){
-        console.log('Moedas:')
-        console.log(`${money[1]} moeda(s) de R$ ${money[0].toFixed(2)}`)
-      } else {
-        console.log(`${money[1]} moeda(s) de R$ ${money[0].toFixed(2)}`)
-      }
-    }
+  banknotesQuantity.map((money, index) => {
+    if(index === 0) console.log('Notas:')
+    if(money[0] > 1) console.log(`${money[1]} nota(s) de R$ ${money[0].toFixed(2)}`)
+    if(money[0] === 1) console.log(`Moedas:\n${money[1]} moeda(s) de R$ ${money[0].toFixed(2)}`)
+    if(money[0] < 1) console.log(`${money[1]} moeda(s) de R$ ${money[0].toFixed(2)}`)
   })
   interface.close()
 })
