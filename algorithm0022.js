@@ -31,24 +31,8 @@ interface.question('Insira A: ', num1 => {
       interface.question('Insira D: ', num4 => {
         D = Number(num4)
 
-        if(B > C) {
-          if(D > A){
-            if((C+D) > (A+B)){
-              if(C*D > 0){
-                if((A % 2) == 0){
-                  interface.write('Valores aceitos.')
-                } else {
-                  interface.write('Valores não aceitos.')
-                }
-              } else {
-                interface.write('Valores não aceitos.')
-              }
-            } else {
-              interface.write('Valores não aceitos.')
-            }
-          } else {
-            interface.write('Valores não aceitos.')
-          }
+        if(B > C && D > A && (C+D) > (A+B) && (C*D > 0) && (A % 2) == 0){
+          interface.write('Valores aceitos.')
         } else {
           interface.write('Valores não aceitos.')
         }
