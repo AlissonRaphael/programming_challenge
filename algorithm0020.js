@@ -34,8 +34,6 @@ interface.question('Quantidade de dias: ', daysQuantity => {
   [{key:'Ano', inDays:365},{key:'Mês', inDays:30},{key:'Dia',inDays:1}]
     .map(label => quantifier(label.key, label.inDays))
 
-  final.map(obj => {
-    console.log(`${obj.quantity} ${obj.key}(s)`)
-  })
+  final.map(obj => console.log(`${obj.quantity} ${obj.key}(s)`))
   interface.close()
 })
