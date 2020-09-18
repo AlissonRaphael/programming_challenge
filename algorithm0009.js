@@ -18,10 +18,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var code = Number()
-var hour = Number()
-var amount = Number()
-var salary = Number()
+var code, hour, amount, salary = Number()
 
 interface.question('Código: ', codeNum => {
   code = Number(codeNum)
