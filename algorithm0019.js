@@ -18,21 +18,18 @@ var interface = readline.createInterface({
 
 interface.question('Valor: R$ ', response => {
   var value = Number(response)
-  var banknotesQuantity = []
+  var banknotes = []
 
-  function quantifier(note){
+  var notes = [100, 50, 20, 10, 5, 2, 1]
+  notes.map(note => {
     if(value >= note){
-      banknotesQuantity.push([note, parseInt(value/note)])
+      banknotes.push([note, parseInt(value/note)])
       value = value % note
     } else {
-      banknotesQuantity.push([note, 0])
+      banknotes.push([note, 0])
     }
-  }
-
-  [100, 50, 20, 10, 5, 2, 1].map(note => quantifier(note))
-
-  banknotesQuantity.map(note => {
-    console.log(`${note[1]} nota(s) de R$ ${note[0].toFixed(2)}`)
   })
+
+  banknotes.map(note => console.log(`${note[1]} nota(s) de R$ ${note[0].toFixed(2)}`))
   interface.close()
 })
