@@ -20,9 +20,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var seller = Number()
-var fixedSalary = Number()
-var total = Number()
+var seller, fixedSalary, total = Number()
 
 interface.question('Nome: ', name => {
   seller = Number(name)
