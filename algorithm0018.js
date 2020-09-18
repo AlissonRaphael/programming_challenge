@@ -22,9 +22,7 @@ interface.question('Tempo da viagem (h): ', tim => {
   time = Number(tim)
   interface.question('Velocidade média (km/h): ', avarageSpeed => {
     var distance = Number(avarageSpeed)*time
-    var gasto = distance/12
-
-    interface.write(`${gasto.toFixed(3)} L`)
+    interface.write(`${(distance/12).toFixed(3)} L`)
     interface.close()
   })
 })
