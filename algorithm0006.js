@@ -16,9 +16,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var A = Number()
-var B = Number()
-var average = Number()
+var A, B, average = Number()
 
 interface.question('Nota A: ', noteA => {
   A = Number(noteA)
