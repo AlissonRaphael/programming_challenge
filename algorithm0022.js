@@ -16,11 +16,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var A = Number()
-var B = Number()
-var C = Number()
-var D = Number()
-var distance = Number()
+var A, B, C, D = Number()
 
 interface.question('Insira A: ', num1 => {
   A = Number(num1)
@@ -30,7 +26,6 @@ interface.question('Insira A: ', num1 => {
       C = Number(num3)
       interface.question('Insira D: ', num4 => {
         D = Number(num4)
-
         if(B > C && D > A && (C+D) > (A+B) && (C*D > 0) && (A % 2) == 0){
           interface.write('Valores aceitos.')
         } else {
