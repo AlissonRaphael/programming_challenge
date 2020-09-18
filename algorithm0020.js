@@ -22,17 +22,15 @@ interface.question('Quantidade de dias: ', daysQuantity => {
   var days = Number(daysQuantity)
   var final = []
 
-  function quantifier(label, inDays){
-    if(days >= inDays){
-      final.push({key: label, quantity: parseInt(days/inDays)})
-      days = days % inDays
+  var labels = [{key:'Ano', inDays:365},{key:'Mês', inDays:30},{key:'Dia',inDays:1}]
+  labels.map(label => {
+    if(days >= label.inDays){
+      final.push({key: label.key, quantity: parseInt(days/label.inDays)})
+      days = days % label.inDays
     } else {
       final.push({key: label, quantity: 0})
     }
-  }
-
-  [{key:'Ano', inDays:365},{key:'Mês', inDays:30},{key:'Dia',inDays:1}]
-    .map(label => quantifier(label.key, label.inDays))
+  })
 
   final.map(obj => console.log(`${obj.quantity} ${obj.key}(s)`))
   interface.close()
