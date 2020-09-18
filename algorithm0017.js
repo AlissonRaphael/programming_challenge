@@ -20,13 +20,8 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var speedX = 60
-var speedY = 90
-var time = Number()
-
 interface.question('Distância inicial (km): ', distance => {
-  time = (Number(distance)/(90-60))
-
+  var time = (Number(distance)/(90-60))
   interface.write(`${time*60} minutos`)
   interface.close()
 })
