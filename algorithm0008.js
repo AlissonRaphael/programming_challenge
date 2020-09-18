@@ -16,11 +16,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var A = Number()
-var B = Number()
-var C = Number()
-var D = Number()
-var result = Number()
+var A, B, C, D, result = Number()
 
 interface.question('Insira A: ', numA => {
   A = Number(numA)
