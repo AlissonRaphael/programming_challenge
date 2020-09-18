@@ -18,8 +18,7 @@ var interface = readline.createInterface({
 })
 
 var cart = []
-
-var totalPrice = Number()
+var total = Number()
 
 function addProductInCart(){
   interface.question('Código do produto: ', num => {
@@ -30,21 +29,18 @@ function addProductInCart(){
       interface.question('Preço unitário: ', uniPrice => {
         product['price'] = Number(uniPrice)
         product['total'] = (product.quantity * product.price)
+        total += product.total
         cart.push(new Object(product))
-        interface.question('Adicionar produto? (S ou N): ', response => {
-          if(response === 'S' || response === 's'){
-            addProductInCart()
-          } else {
-            cart.map(product => {
-              totalPrice += product.total
-            })
-            console.log(cart)
-            console.log(`Valor total: R$ ${totalPrice.toFixed(2)}`)
+        interface.question('Adicionar mais produtos? (S ou N): ', response => {
+          if(response === 'S' || response === 's') addProductInCart()
+          if(response === 'N' || response === 'n') {
+            cart.push(new Object({total: `Valor total: R$ ${total.toFixed(2)}`}))
+            console.table(cart)
+            interface.close()
           }
         })
       })
     })
   })
 }
-
 addProductInCart()
