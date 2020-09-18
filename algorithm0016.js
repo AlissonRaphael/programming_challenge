@@ -16,11 +16,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var x1 = Number()
-var y1 = Number()
-var x2 = Number()
-var y2 = Number()
-var distance = Number()
+var x1, y1, x2, y2, distance = Number()
 
 interface.question('Insira x1: ', num1 => {
   x1 = Number(num1)
