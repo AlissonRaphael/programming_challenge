@@ -25,24 +25,21 @@ interface.question('Insira a: ', num1 => {
     interface.question('Insira c: ', num3 => {
       C = Number(num3)
       var delta = (B**2)-(4*A*C)
-      console.log(delta)
-      if(delta < 0) {
-        interface.write('Impossível calcular')
-        interface.close()
-      }
+      
+      if(delta < 0) interface.write('Impossível calcular')
 
       if(delta == 0){
         var r = -B/(2*A)
         interface.write(`Raiz: ${r.toFixed(5)}`)
-        interface.close()
       }
 
       if(delta > 0){
         var r1 = (-B + Math.sqrt(delta))/(2*A)
         var r2 = (-B - Math.sqrt(delta))/(2*A)
         interface.write(`Raiz I: ${r1.toFixed(5)}\nRaiz II: ${r2.toFixed(5)}`)
-        interface.close()
       }
+
+      interface.close()
     })
   })
 })
