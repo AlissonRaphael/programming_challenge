@@ -22,11 +22,10 @@ var interface = readline.createInterface({
 
 interface.question('Valor: ', response => {
   var value = Number(response)
-  if(value < 0) interface.write('Fora do intervalo.')
   if(value >= 0  && value <= 25) interface.write('Intervalo: [0,25]')
   if(value > 25 && value <= 50) interface.write('Intervalo: (25,50]')
   if(value > 50 && value <= 75) interface.write('Intervalo: (50,75]')
   if(value > 75 && value <= 100) interface.write('Intervalo: (75,100]')
-  if(value > 100) interface.write('Fora do intervalo.')
+  if(value < 0 || value > 100) interface.write('Fora do intervalo.')
   interface.close()
 })
