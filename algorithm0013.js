@@ -21,14 +21,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var A = Number()
-var B = Number()
-var C = Number()
-var triangle = Number()
-var circle = Number()
-var trapezium = Number()
-var square = Number()
-var rectangle = Number()
+var A, B, C, triangle, circle, trapezium, square, rectangle = Number()
 
 interface.question('Insira A: ', valueA => {
   A = Number(valueA)
