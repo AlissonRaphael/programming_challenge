@@ -28,18 +28,18 @@ interface.question('Insira a nota I: ', num1 => {
       c = Number(num3)
       interface.question('Insira a nota IV: ', num4 => {
         d = Number(num4)
-
         average = ((a*2)+(b*3)+(c*4)+(d*1))/10
-        interface.write(`Média: ${average}\n`)
-        if(average >= 7) interface.write(`Aprovado`)
+
+        if(average >= 7) interface.write(`Média: ${average}\nAprovado.\nMédia Final: ${average}`)
+
         if(average >= 5 && average < 7){
-          interface.question('Nescessita de recuperação.\nInsira a nota V: ', num5 => {
-            average = (average + Number(num5))/2
-            interface.write(`Média Final: ${average}\n`)
+          interface.question(`Média: ${average}\nRecuperação.\nInsira a nota V: `, num5 => {
+            interface.write(`Média Final: ${(average + Number(num5))/2}\n`)
             interface.close()
           })
         }
-        if(average < 5) interface.write(`Reprovado.\nMédia Final: ${average}`)
+
+        if(average < 5) interface.write(`Média: ${average}\nReprovado.\nMédia Final: ${average}`)
       })
     })
   })
