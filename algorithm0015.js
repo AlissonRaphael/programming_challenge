@@ -16,9 +16,7 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var distance = Number()
-var consumption = Number()
-var average = Number()
+var distance, consumption, average = Number()
 
 interface.question('Distância (km): ', km => {
   distance = Number(km)
