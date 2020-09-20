@@ -23,12 +23,9 @@ interface.question('Tamanho da reta A: ', num1 => {
   interface.question('Tamanho da reta B: ', num2 => {
     B = Number(num2)
 
-    if(A%B == 0 || B%A == 0){
-      interface.write('São múltiplos')
-      interface.close()
-    } else {
-      interface.write('Não são múltiplos')
-      interface.close()
-    }
+    if(A%B == 0 || B%A == 0) interface.write('São múltiplos')
+    if(A%B != 0 || B%A != 0) interface.write('Não são múltiplos')
+
+    interface.close()
   })
 })
