@@ -24,5 +24,6 @@ interface.question('Insira o número I: ', first => {
     num2 = Number(last)
     prod = num1 * num2
     interface.write(`x = ${prod}`)
+    interface.close()
   })
 })

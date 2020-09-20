@@ -29,6 +29,7 @@ interface.question('Nome: ', name => {
     interface.question('Vendas: ', bonus => {
       total = (fixedSalary + (0.15*Number(bonus)))
       interface.write(`Total: R$ ${total.toFixed(2)}`)
+      interface.close()
     })
   })
 })

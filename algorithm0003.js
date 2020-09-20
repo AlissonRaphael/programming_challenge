@@ -21,4 +21,5 @@ var interface = readline.createInterface({
 interface.question('Insira o raio: ', raio => {
   var area = Number(3.14159)*(Number(raio)**2)
   interface.write(`A = ${area}`)
+  interface.close()
 })

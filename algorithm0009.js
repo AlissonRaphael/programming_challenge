@@ -30,6 +30,7 @@ interface.question('Código: ', codeNum => {
       interface.write(
         `Código: ${code}\nHora Quantidade: ${hour}\nSalário: ${salary.toFixed(2)} R$`
       )
+      interface.close()
     })
   })
 })

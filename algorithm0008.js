@@ -28,6 +28,7 @@ interface.question('Insira A: ', numA => {
         D = Number(numD)
         result = ((A*B) + (C*D))
         interface.write(`Product = ${result}`)
+        interface.close()
       })
     })
   })

@@ -24,5 +24,6 @@ interface.question('Nota A: ', noteA => {
     B = Number(noteB)
     average = ((A*3.5) + (B*7.5))/11
     interface.write(`Average = ${average.toFixed(1)}`)
+    interface.close()
   })
 })
