@@ -25,29 +25,12 @@ interface.question('Insira o número I: ', num1 => {
     interface.question('Insira o número III: ', num3 => {
       C = Number(num3)
 
-      if(A>B && A>C){
-        if(B>C){
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${C}, ${B}, ${A}`)
-        } else {
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${B}, ${C}, ${A}`)
-        }
-      }
-
-      if(B>A && B>C){
-        if(A>C){
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${C}, ${A}, ${B}`)
-        } else {
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${A}, ${C}, ${B}`)
-        }
-      }
-
-      if(C>A && C>B){
-        if(A>B){
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${B}, ${A}, ${C}`)
-        } else {
-          interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${A}, ${B}, ${C}`)
-        }
-      }
+      if(A>B && A>C && B>C) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${C}, ${B}, ${A}`)
+      if(A>B && A>C && C>B) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${B}, ${C}, ${A}`)
+      if(B>A && B>C && A>C) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${C}, ${A}, ${B}`)
+      if(B>A && B>C && C>A) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${A}, ${C}, ${B}`)
+      if(C>A && C>B && A>B) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${B}, ${A}, ${C}`)
+      if(C>A && C>B && B>A) interface.write(`Números: ${A}, ${B}, ${C}.\nOrdenados: ${A}, ${B}, ${C}`)
 
       interface.close()
     })
