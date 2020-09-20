@@ -30,14 +30,12 @@ interface.question('Tamanho da reta A: ', num1 => {
     B = Number(num2)
     interface.question('Tamanho da reta C: ', num3 => {
       C = Number(num3)
-
       if((Math.abs(A+B) == C) || (Math.abs(A+C) == B) || (Math.abs(C+B) == A)){
         interface.write(`Área do trapézio: ${((A+B)*C)/2}`)
-        interface.close()
       } else {
         interface.write(`Perímetro do triângulo: ${A+B+C}`)
-        interface.close()
       }
+      interface.close()
     })
   })
 })
