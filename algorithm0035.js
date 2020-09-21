@@ -20,6 +20,16 @@ var interface = readline.createInterface({
 })
 
 var firstAspect, secondAspect, lastAspect = String()
+var animals = [
+  { first: 'vertebrado', second: 'ave', last: 'carnivoro', name: 'Águia'},
+  { first: 'vertebrado', second: 'ave', last: 'onivoro', name: 'Pomba'},
+  { first: 'vertebrado', second: 'mamifero', last: 'onivoro', name: 'Homem'},
+  { first: 'vertebrado', second: 'mamifero', last: 'herbivoro', name: 'Vaca'},
+  { first: 'invertebrado', second: 'inseto', last: 'hematofago', name: 'Pulga'},
+  { first: 'invertebrado', second: 'inseto', last: 'herbivoro', name: 'Lagarta'},
+  { first: 'invertebrado', second: 'anelideo', last: 'hematofago', name: 'Sanguessuga'},
+  { first: 'invertebrado', second: 'anelideo', last: 'onivoro', name: 'Minhoca'}
+]
 
 interface.question('Aspecto I: ', resp1 => {
   firstAspect = resp1
@@ -28,51 +38,10 @@ interface.question('Aspecto I: ', resp1 => {
       interface.question('Aspecto III: ', resp3 => {
         lastAspect = resp3
 
-        switch(firstAspect){
-          case 'vertebrado':
-            switch(secondAspect){
-              case 'ave':
-                switch(lastAspect){
-                  case 'carnivoro':
-                    interface.write('Águia')
-                    break
-                  case 'onivoro':
-                    interface.write('Pomba')
-                    break
-                }
-              case 'mamifero':
-                switch(lastAspect){
-                  case 'onivoro':
-                    interface.write('Homem')
-                    break
-                  case 'herbivoro':
-                    interface.write('Vaca')
-                    break
-                }
-            }
-          case 'invertebrado':
-            switch(secondAspect){
-              case 'inseto':
-                switch(lastAspect){
-                  case 'hematofago':
-                    interface.write('Pulga')
-                    break
-                  case 'herbivoro':
-                    interface.write('Lagarta')
-                    break
-                }
-              case 'anelideo':
-                switch(lastAspect){
-                  case 'hematofago':
-                    interface.write('Sanguessuga')
-                    break
-                  case 'onivoro':
-                    interface.write('Minhoca')
-                    break
-                }
-            }
-        }
-
+        var animal = animals.filter(animal => (
+          firstAspect == animal.first && secondAspect == animal.second && lastAspect == animal.last
+        ))
+        interface.write(animal[0].name)
         interface.close()
       })
     })
