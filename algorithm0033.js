@@ -22,24 +22,29 @@ var startHour, startMinutes, endHour, endMinutes = Number()
 
 interface.question('Hora inicial: ', num1 => {
   startHour = Number(num1)
-    interface.question('Minuto final: ', num2 => {
+    interface.question('Minuto inicial: ', num2 => {
       startMinutes = Number(num2)
       interface.question('Hora final: ', num3 => {
         endHour = Number(num3)
         interface.question('Minuto final: ', num4 => {
-          endMinutes = Number(num3)
+          endMinutes = Number(num4)
+          var hours, minutes = Number()
+
+          if(startHour > endHour) hours = 24-startHour+endHour
+          if(startHour < endHour) hours = endHour-startHour
+          if(startMinutes > endMinutes) minutes = 60-startMinutes+endMinutes
+          if(startMinutes < endMinutes) minutes = endMinutes-startMinutes
+
+          if(minutes >= 60){
+            minutes -= 60
+            hours += 1
+          }
 
           if(startHour == endHour && startMinutes == endMinutes){
-            interface.write(`O jogo durou 24 hora(s)`)
+            interface.write(`O jogo durou 24 hora(s) 0 minuto(s)`)
           }
-          if(startHour > endHour){
-            interface.write(
-              `O jogo durou ${24 - startHour + endHour} hora(s) e ${}`
-            )
-          }
-          
-          if(startHour < endHour) interface.write(`O jogo durou ${endHour-startHour} hora(s).`)
-    
+
+          interface.write(`O jogo durou ${hours} hora(s) e ${minutes} minuto(s).`)
           interface.close()
         })
       })
