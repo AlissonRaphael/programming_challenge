@@ -19,7 +19,6 @@ var interface = readline.createInterface({
 var numbers = []
 var positive = Number()
 var sum = Number()
-var average = Number()
 
 interface.question(': ', num1 => {
   numbers.push(Number(num1))
@@ -33,15 +32,15 @@ interface.question(': ', num1 => {
           numbers.push(Number(num5))
           interface.question(': ', num6 => {
             numbers.push(Number(num6))
+
             numbers.forEach(number => {
               if(number >= 0){
                 positive += 1
                 sum += number
               }
             })
-            average = sum/positive
-            interface.write(`${positive} positivos.\n`)
-            interface.write(`Média: ${average}.`)
+
+            interface.write(`${positive} positivos.\nMédia: ${sum/positive}`)
             interface.close()
           })
         })
