@@ -40,23 +40,14 @@ interface.question('Dia de início (dd): ', day1 => {
           startHour = startHour.map(time => Number(time))
           endHour = endHour.map(time => Number(time))
 
-          if(startHour[0] > endHour[0]){
-            hours = 24-startHour[0]+endHour[0]
-          } else if(startHour[0] < endHour[0]){
-            hours = endHour[0]-startHour[0]
-          }
+          if(startHour[0] > endHour[0]) hours = 24-startHour[0]+endHour[0]
+          if(startHour[0] < endHour[0]) hours = endHour[0]-startHour[0]
 
-          if(startHour[1] > endHour[1]){
-            minutes = 60-startHour[1]+endHour[1]
-          } else if(startHour[1] < endHour[1]){
-            minutes = endHour[1]-startHour[1]
-          }
+          if(startHour[1] > endHour[1]) minutes = 60-startHour[1]+endHour[1]
+          if(startHour[1] < endHour[1]) minutes = endHour[1]-startHour[1]
 
-          if(startHour[2] > endHour[2]){
-            seconds = 60-startHour[2]+endHour[2]
-          } else if(startHour[2] < endHour[2]){
-            seconds = endHour[2]-startHour[2]
-          }
+          if(startHour[2] > endHour[2]) seconds = 60-startHour[2]+endHour[2]
+          if(startHour[2] < endHour[2]) seconds = endHour[2]-startHour[2]
 
           if(seconds >= 60){
             seconds = 60-seconds
