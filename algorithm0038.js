@@ -22,8 +22,6 @@ var mounths = [
 ]
 
 interface.question('Número do mês: ', num => {
-  var number = Number(num)
-
-  interface.write(`${mounths[number-1]}`)
+  interface.write(`${mounths[Number(number)-1]}`)
   interface.close()
 })
