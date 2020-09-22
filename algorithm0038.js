@@ -21,7 +21,7 @@ var mounths = [
   'August','September','October','November','December'
 ]
 
-interface.question('Número do mês: ', num => {
+interface.question('Número do mês: ', number => {
   interface.write(`${mounths[Number(number)-1]}`)
   interface.close()
 })
