@@ -24,9 +24,7 @@ interface.question('Salário: ', num => {
   var salary = Number(num)
   var taxes = Number()
 
-  if(salary > 2000 && salary <= 3000){
-    taxes = (salary-2000)*0.08
-  }
+  if(salary > 2000 && salary <= 3000) taxes = (salary-2000)*0.08
 
   if(salary > 3000 && salary <= 4000){
     taxes = (salary-3000)*0.18
@@ -39,10 +37,7 @@ interface.question('Salário: ', num => {
     taxes += 1000*0.08
   }
 
-  if(salary > 0 && salary <= 2000){
-    interface.write('Insento')
-  } else {
-    interface.write(`R$ ${taxes.toFixed(2)}`)
-  }
+  if(salary > 0 && salary <= 2000) interface.write('Insento')
+  if(salary > 20000) interface.write(`R$ ${taxes.toFixed(2)}`)
   interface.close()
 })
