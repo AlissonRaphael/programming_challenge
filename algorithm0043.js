@@ -32,12 +32,7 @@ interface.question(': ', num1 => {
         interface.question(': ', num5 => {
           numbers.push(Number(num5))
 
-          numbers.forEach(number => {
-            if(number % 2 == 0){
-              pairs += 1
-            }
-          })
-
+          numbers.forEach(number => {if(number % 2 == 0) pairs += 1})
           interface.write(`${pairs} pares.`)
           interface.close()
         })
