@@ -16,7 +16,6 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var num = Number()
 interface.question('Ínsira um número entre 1 á 1000: ', res => {
   num = Number(res)
   for(var i = 0; i <= num; i++){
