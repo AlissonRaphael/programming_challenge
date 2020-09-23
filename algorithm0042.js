@@ -16,35 +16,23 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var numbers = []
 var positive = Number()
+var number = Number()
 var sum = Number()
+async function init(){
+  for(var i = 1; i <= 6; i++){
+    number = Number(await new Promise(resolve => {
+      interface.question(`Número ${i}: `, input => resolve(input))
+    }))
 
-interface.question(': ', num1 => {
-  numbers.push(Number(num1))
-  interface.question(': ', num2 => {
-    numbers.push(Number(num2))
-    interface.question(': ', num3 => {
-      numbers.push(Number(num3))
-      interface.question(': ', num4 => {
-        numbers.push(Number(num4))
-        interface.question(': ', num5 => {
-          numbers.push(Number(num5))
-          interface.question(': ', num6 => {
-            numbers.push(Number(num6))
+    if(number >= 0){
+      positive += 1
+      sum += number
+    }
+  }
 
-            numbers.forEach(number => {
-              if(number >= 0){
-                positive += 1
-                sum += number
-              }
-            })
+  interface.write(`${positive} positivos.\nMédia: ${sum/positive}`)
+  interface.close()
+}
 
-            interface.write(`${positive} positivos.\nMédia: ${sum/positive}`)
-            interface.close()
-          })
-        })
-      })
-    })
-  })
-})
+init()
