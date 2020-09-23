@@ -16,36 +16,28 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var numbers = []
+var number = Number()
 var pairs = Number()
 var odds = Number()
 var positives = Number()
 var negatives = Number()
 
-interface.question(': ', num1 => {
-  numbers.push(Number(num1))
-  interface.question(': ', num2 => {
-    numbers.push(Number(num2))
-    interface.question(': ', num3 => {
-      numbers.push(Number(num3))
-      interface.question(': ', num4 => {
-        numbers.push(Number(num4))
-        interface.question(': ', num5 => {
-          numbers.push(Number(num5))
+async function init(){
+  for(var i = 1; i <= 5; i++){
+    number = Number(await new Promise(resolve => {
+      interface.question(`Número ${i}: `, input => resolve(input))
+    }))
+    if(number % 2 == 0) pairs += 1
+    if(number % 2 != 0) odds += 1
+    if(number > 0) positives += 1
+    if(number < 0) negatives += 1
+  }
+  
+  interface.write(`${pairs} valor(es) par(es)\n`)
+  interface.write(`${odds} valor(es) impar(es)\n`)
+  interface.write(`${positives} valor(es) positivo(s)\n`)
+  interface.write(`${negatives} valor(es) negativo(s)`)
+  interface.close()
+}
 
-          numbers.forEach(number => {
-            if(number % 2 == 0) pairs += 1
-            if(number % 2 != 0) odds += 1
-            if(number > 0) positives += 1
-            if(number < 0) negatives += 1
-          })
-          interface.write(`${pairs} valor(es) par(es)\n`)
-          interface.write(`${odds} valor(es) impar(es)\n`)
-          interface.write(`${positives} valor(es) positivo(s)\n`)
-          interface.write(`${negatives} valor(es) negativo(s)`)
-          interface.close()
-        })
-      })
-    })
-  })
-})
+init()
