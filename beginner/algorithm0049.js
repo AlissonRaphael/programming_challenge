@@ -19,7 +19,7 @@ var interface = readline.createInterface({
 })
 
 interface.question('Ínsira um número: ', res => {
-  num = Number(res)
+  var num = Number(res)
   for(var i = 1; i <= num; i++){
     if((i**2) % 2 != 0) console.log(`${i**2}`)
   }
