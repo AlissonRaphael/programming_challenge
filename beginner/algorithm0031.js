@@ -36,21 +36,18 @@ interface.question('Tamanho da reta A: ', num1 => {
         if((A**2 == ((B**2)+(C**2))) || (B**2 == ((A**2)+(C**2))) || (C**2 == ((B**2)+(A**2)))){
           interface.write('Triângulo retângulo.\n')
         }
-  
+
         if((A**2 > ((B**2)+(C**2))) || (B**2 > ((A**2)+(C**2))) || (C**2 > ((B**2)+(A**2)))){
           interface.write('Acutângulo.\n')
         }
-  
+
         if((A**2 < ((B**2)+(C**2))) || (B**2 < ((A**2)+(C**2))) || (C**2 < ((B**2)+(A**2)))){
           interface.write('Obtusângulo.\n')
         }
-  
-        if(A==B || A==C) {
-          if(B==C) {
-            interface.write('Triângulo equilátero.')
-          } else {
-            interface.write('Triângulo isósceles.')
-          }
+
+        if(A==B || A==C){
+          if(B==C) interface.write('Triângulo equilátero.')
+          if(B!=C) interface.write('Triângulo isósceles.')
         }
       }
 
