@@ -16,14 +16,13 @@ var interface = readline.createInterface({
   output: process.stdout
 })
 
-var num1, num2, sum = Number()
+var num1, num2 = Number()
 
 interface.question('Insira o número I: ', first => {
   num1 = Number(first)
   interface.question('Insira o número II: ', last => {
     num2 = Number(last)
-    sum = num1 + num2
-    interface.write(`x = ${sum}`)
+    interface.write(`x = ${num1 + num2}`)
     interface.close()
   })
 })
