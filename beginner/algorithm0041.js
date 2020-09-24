@@ -33,7 +33,7 @@ async function init(){
   })
 
   startHour = await new Promise(resolve => {
-    interface.question('Hora do início (hh:mm:ss): ', input => resolve(Number(input)))
+    interface.question('Hora do início (hh:mm:ss): ', input => resolve(String(input)))
   })
 
   endDay = await new Promise(resolve => {
@@ -41,55 +41,40 @@ async function init(){
   })
 
   endHour = await new Promise(resolve => {
-    interface.question('Hora do final (hh:mm:ss): ', input => resolve(Number(input)))
+    interface.question('Hora do final (hh:mm:ss): ', input => resolve(String(input)))
   })
 
   startHour = startHour.split(':')
   endHour = endHour.split(':')
+
+  if(startHour[0] > endHour[0]) hours = 24-startHour[0]+endHour[0]
+  if(startHour[0] < endHour[0]) hours = endHour[0]-startHour[0]
+
+  if(startHour[1] > endHour[1]) minutes = 60-startHour[1]+endHour[1]
+  if(startHour[1] < endHour[1]) minutes = endHour[1]-startHour[1]
+
+  if(startHour[2] > endHour[2]) seconds = 60-startHour[2]+endHour[2]
+  if(startHour[2] < endHour[2]) seconds = endHour[2]-startHour[2]
+
+  if(seconds >= 60){
+    seconds = 60-seconds
+    minutes += 1
+  }
+  if(minutes >= 60){
+    minutes = 60-minutes
+    hours += 1
+  }
+
+  var days = endDay-startDay-1
+  if(hours >= 24){
+    hours = 24-hours
+    days += 1
+  }
+
+  interface.write(
+    `Duração:\n${days} dia(s), ${hours} hora(s), ${minutes} minuto(s), ${seconds} segundo(s).`
+  )
+  interface.close()
 }
 
-interface.question('Dia de início (dd): ', day1 => {
-  startDay = Number(day1)
-    interface.question('Hora do início (hh:mm:ss): ', hour1 => {
-      startHour = String(hour1).split(':')
-      interface.question('Último dia (dd): ', day2 => {
-        endDay = Number(day2)
-        interface.question('Hora do final (hh:mm:ss): ', hour2 => {
-          endHour = String(hour2).split(':')
-
-          var hours, minutes, seconds = Number()
-          startHour = startHour.map(time => Number(time))
-          endHour = endHour.map(time => Number(time))
-
-          if(startHour[0] > endHour[0]) hours = 24-startHour[0]+endHour[0]
-          if(startHour[0] < endHour[0]) hours = endHour[0]-startHour[0]
-
-          if(startHour[1] > endHour[1]) minutes = 60-startHour[1]+endHour[1]
-          if(startHour[1] < endHour[1]) minutes = endHour[1]-startHour[1]
-
-          if(startHour[2] > endHour[2]) seconds = 60-startHour[2]+endHour[2]
-          if(startHour[2] < endHour[2]) seconds = endHour[2]-startHour[2]
-
-          if(seconds >= 60){
-            seconds = 60-seconds
-            minutes += 1
-          }
-          if(minutes >= 60){
-            minutes = 60-minutes
-            hours += 1
-          }
-
-          var days = endDay-startDay-1
-          if(hours >= 24){
-            hours = 24-hours
-            days += 1
-          }
-
-          interface.write(
-            `Duração:\n${days} dia(s), ${hours} hora(s), ${minutes} minuto(s), ${seconds} segundo(s).`
-          )
-          interface.close()
-        })
-      })
-    })
-})
+init()
