@@ -27,6 +27,27 @@ var interface = readline.createInterface({
 var startDay, endDay = Number()
 var startHour, endHour = String()
 
+async function init(){
+  startDay = await new Promise(resolve => {
+    interface.question('Dia de início (dd): ', input => resolve(Number(input)))
+  })
+
+  startHour = await new Promise(resolve => {
+    interface.question('Hora do início (hh:mm:ss): ', input => resolve(Number(input)))
+  })
+
+  endDay = await new Promise(resolve => {
+    interface.question('Último dia (dd): ', input => resolve(Number(input)))
+  })
+
+  endHour = await new Promise(resolve => {
+    interface.question('Hora do final (hh:mm:ss): ', input => resolve(Number(input)))
+  })
+
+  startHour = startHour.split(':')
+  endHour = endHour.split(':')
+}
+
 interface.question('Dia de início (dd): ', day1 => {
   startDay = Number(day1)
     interface.question('Hora do início (hh:mm:ss): ', hour1 => {
