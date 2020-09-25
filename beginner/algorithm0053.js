@@ -22,7 +22,7 @@ async function init(){
   })
 
   var tests = []
-  
+  var note = Number()
   var weigths = [2,3,5]
   for(var i = 0; i < quantity; i++){
     var notes = {}
@@ -38,6 +38,7 @@ async function init(){
   }
 
   console.table(tests)
+  interface.close()
 }
 
 init()
