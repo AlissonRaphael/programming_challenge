@@ -27,13 +27,12 @@ async function init(){
   })
 
   var tests = []
-  var input = []
 
   console.log('Insira os testes no formato [Qtd.<espaço>Inicial].')
   for(var i = 0; i < testQuantity; i++){
     var test = {}
 
-    input = await new Promise(resolve => {
+    var input = await new Promise(resolve => {
       interface.question(`Teste ${i+1}: `, input => resolve(String(input).split(' ')))
     })
 
