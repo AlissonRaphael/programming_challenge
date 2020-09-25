@@ -44,17 +44,22 @@ async function init(){
     interface.question('Hora do final (hh:mm:ss): ', input => resolve(String(input)))
   })
 
+  var hours, minutes, seconds = Number()
+
   startHour = startHour.split(':')
+  startHour = startHour.map(time => Number(time))
   endHour = endHour.split(':')
+  endHour = endHour.map(time => Number(time))
 
   if(startHour[0] > endHour[0]) hours = 24-startHour[0]+endHour[0]
   if(startHour[0] < endHour[0]) hours = endHour[0]-startHour[0]
-
+  if(startHour[0] === endHour[0]) hours = 0
   if(startHour[1] > endHour[1]) minutes = 60-startHour[1]+endHour[1]
   if(startHour[1] < endHour[1]) minutes = endHour[1]-startHour[1]
-
+  if(startHour[1] === endHour[1]) minutes = 0
   if(startHour[2] > endHour[2]) seconds = 60-startHour[2]+endHour[2]
   if(startHour[2] < endHour[2]) seconds = endHour[2]-startHour[2]
+  if(startHour[2] === endHour[2]) seconds = 0
 
   if(seconds >= 60){
     seconds = 60-seconds
@@ -64,7 +69,6 @@ async function init(){
     minutes = 60-minutes
     hours += 1
   }
-
   var days = endDay-startDay-1
   if(hours >= 24){
     hours = 24-hours
