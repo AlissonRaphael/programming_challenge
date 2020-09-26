@@ -26,39 +26,25 @@ async function init(){
     interface.question('Insira a quantidade de testes: ', input => resolve(Number(input)))
   })
 
-  var tests = []
   var total = Number()
   var totalC = Number()
   var totalR = Number()
   var totalS = Number()
-  var percentC = Number()
-  var percentR = Number()
-  var percentS = Number()
 
   console.log('Insira os testes no formato [Qtd.<espaço>Inicial].')
   for(var i = 0; i < testQuantity; i++){
-    var test = {}
 
     var input = await new Promise(resolve => {
       interface.question(`Teste ${i+1}: `, input => resolve(String(input).split(' ')))
     })
 
-    if(input[1] == 'C') test['animal'] = 'Coelho(s)'
-    if(input[1] == 'R') test['animal'] = 'Rato(s)'
-    if(input[1] == 'S') test['animal'] = 'Sapo(s)'
-    test['quantity'] = Number(input[0])
-    tests.push(test)
+    if(input[1] == 'C') totalC += Number(input[0])
+    if(input[1] == 'R') totalR += Number(input[0])
+    if(input[1] == 'S') totalS += Number(input[0])
+
+    total += Number(input[0])
   }
 
-  tests.map(test => {
-    total += test.quantity
-    if(test.animal == 'Coelho(s)') totalC += test.quantity
-    if(test.animal == 'Rato(s)') totalR += test.quantity
-    if(test.animal == 'Sapo(s)') totalS += test.quantity
-  })
-
-
-  console.table(tests)
   interface.write(`Total: ${total} cobaias\n`)
   interface.write(`Total de coelhos: ${totalC}\n`)
   interface.write(`Total de ratos: ${totalR}\n`)
