@@ -17,17 +17,13 @@ var interface = readline.createInterface({
 })
 
 async function init(){
-  var ctrl = true
-  while(ctrl){
+  while(true){
     test = await new Promise(resolve => {
       interface.question(`Teste: `, input => resolve(input.split(' ')))
     })
 
     test = test.map(num => Number(num))
-    if(test[0] <= 0 || test[1] <= 0){
-      ctrl = false
-      break
-    }
+    if(test[0] <= 0 || test[1] <= 0) break
 
     var total = Number()
     if(test[0] < test[1]){
@@ -35,7 +31,7 @@ async function init(){
         interface.write(`${i} `)
         total += i
       }
-      interface.write(`sum = ${total}\n`)
+      interface.write(`, sum = ${total}\n`)
     }
 
     if(test[0] > test[1]){
