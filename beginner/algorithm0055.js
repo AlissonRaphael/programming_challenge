@@ -27,6 +27,13 @@ async function init(){
   })
 
   var tests = []
+  var total = Number()
+  var totalC = Number()
+  var totalR = Number()
+  var totalS = Number()
+  var percentC = Number()
+  var percentR = Number()
+  var percentS = Number()
 
   console.log('Insira os testes no formato [Qtd.<espaço>Inicial].')
   for(var i = 0; i < testQuantity; i++){
@@ -40,11 +47,25 @@ async function init(){
     if(input[1] == 'R') test['animal'] = 'Rato(s)'
     if(input[1] == 'S') test['animal'] = 'Sapo(s)'
     test['quantity'] = Number(input[0])
-
     tests.push(test)
   }
 
+  tests.map(test => {
+    total += test.quantity
+    if(test.animal == 'Coelho(s)') totalC += test.quantity
+    if(test.animal == 'Rato(s)') totalR += test.quantity
+    if(test.animal == 'Sapo(s)') totalS += test.quantity
+  })
+
+
   console.table(tests)
+  interface.write(`Total: ${total} cobaias\n`)
+  interface.write(`Total de coelhos: ${totalC}\n`)
+  interface.write(`Total de ratos: ${totalR}\n`)
+  interface.write(`Total de sapos: ${totalS}\n`)
+  interface.write(`Percentual de coelhos: ${(totalC/total).toFixed(2)} %\n`)
+  interface.write(`Percentual de ratos:  ${(totalR/total).toFixed(2)} %\n`)
+  interface.write(`Percentual de sapos:  ${(totalS/total).toFixed(2)} %`)
   interface.close()
 }
 
