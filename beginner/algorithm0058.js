@@ -15,8 +15,8 @@ for(var i = 1; i <= 9; i++){
   var repeat = true
   while(repeat){
     console.log(`I = ${i}, J = ${j}`)
+    if(j==k) repeat = false
     j -= 1
-    if(j<k) repeat = false
   }
 
   j += 5
