@@ -21,15 +21,11 @@ async function init(){
     test = await new Promise(resolve => {
       interface.question(`Teste: `, input => resolve(input.split(' ')))
     })
-
     test = test.map(num => Number(num))
-    if(test[0] === test[1]) break
 
-    if(test[0] < test[1]){
-      interface.write('Ascendente\n')
-    } else {
-      interface.write('Descendente\n')
-    }
+    if(test[0] === test[1]) break
+    if(test[0] < test[1]) interface.write('Ascendente\n')
+    if(test[0] > test[1]) interface.write('Descendente\n')
   }
 
   interface.close()
