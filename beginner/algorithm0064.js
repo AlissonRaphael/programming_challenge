@@ -24,8 +24,7 @@ async function init(){
     var x = Number(coordinates[0])
     var y = Number(coordinates[1])
 
-    if(coordinates[0] == '' || coordinates[1] == '') break
-    if(x==0 || y==0) break
+    if(coordinates[0] == '' || coordinates[1] == '' || x==0 || y==0) break
 
     if(x>0 && y>0) interface.write('Primeiro\n')
     if(x<0 && y>0) interface.write('Segundo\n')
