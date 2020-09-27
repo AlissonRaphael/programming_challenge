@@ -8,3 +8,29 @@
  * Output
  * For each number read print a message corresponding to the description of the problem.
  */
+
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  while(true){
+    var password = await new Promise(resolve => {
+      interface.question(`Teste: `, input => resolve(String(input)))
+    })
+
+    if(password === '2002'){
+      interface.write('Acesso permitido')
+      break
+    } else {
+      interface.write('Acesso negado! Tente novamente.\n')
+    }
+  }
+
+  interface.close()
+}
+
+init()
