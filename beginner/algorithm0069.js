@@ -28,18 +28,12 @@ async function init(){
   var sum = Number()
   if(num1 < num2){
     for(var i = num1; i <= num2; i++){
-      var num = String(i)
-      var lastIndex = num.length-1
-      var expression = Number(num.slice(0,lastIndex)) + 4*Number(num[lastIndex])
-      if(expression == 13) sum += Number(num)
+      if(i%13 != 0) sum += i
     }
   }
   if(num1 > num2){
     for(var i = num1; i >= num2; i--){
-      var num = String(i)
-      var lastIndex = num.length-1
-      var expression = Number(num.slice(0,lastIndex)) + 4*Number(num[lastIndex])
-      if(expression == 13) sum += Number(num)
+      if(i%13 != 0) sum += i
     }
   }
 
