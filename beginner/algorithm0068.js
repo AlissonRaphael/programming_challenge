@@ -15,4 +15,67 @@
  * After each reading of the goals it must be printed the message "Novo grenal (1-sim 2-nao)". When the program is finished, the program must print the statistics as the example below.
  */
 
- 
+
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var golsInter = Number()
+  var golsGremio = Number()
+  var grenal = []
+
+  while(true){
+    while(true){
+      golsInter = await new Promise(resolve => {
+        interface.question(`Gols do Internacional: `, input => resolve(Number(input)))
+      })
+  
+      if(golsInter >= 0) break
+      if(golsInter < 10) interface.write('Insira um número de gols válidos!\n')
+    }
+  
+    while(true){
+      golsGremio = await new Promise(resolve => {
+        interface.question(`Gols do Gremio: `, input => resolve(Number(input)))
+      })
+
+      if(golsGremio >= 0) break
+      if(golsGremio < 10) interface.write('Insira um número de gols válidos!\n')
+    }
+
+    grenal.push({ inter: golsInter, gremio: golsGremio })
+
+    var exit = await new Promise(resolve => {
+      interface.question(`Adicionar mais dados? (1-Sim | 2-Não): `, input => resolve(Number(input)))
+    })
+
+    if(exit == 2) break
+  }
+
+  var total = Number()
+  var winsInter = Number()
+  var winsGremio = Number()
+  var draws = Number()
+
+  grenal.map(grenal => {
+    total += 1
+
+    if(grenal.inter > grenal.gremio) winsInter += 1
+    if(grenal.inter < grenal.gremio) winsGremio += 1
+    if(grenal.inter == grenal.gremio) draws += 1
+  })
+
+  interface.write(`${total} grenais\n`)
+  interface.write(`Inter venceu ${winsInter}\n`)
+  interface.write(`Gremio venceu ${winsGremio}\n`)
+  interface.write(`Empates: ${draws}\n`)
+  if(winsInter > winsGremio) interface.write(`Inter venceu mais`)
+  if(winsInter < winsGremio) interface.write(`Gremio venceu mais`)
+  interface.close()
+}
+
+init()
