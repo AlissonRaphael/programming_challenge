@@ -25,8 +25,6 @@ async function init(){
     interface.question(`Insira o número II: `, input => resolve(Number(input)))
   })
 
-  
-
   var sum = Number()
   if(num1 < num2){
     for(var i = num1; i <= num2; i++){
@@ -38,7 +36,10 @@ async function init(){
   }
   if(num1 > num2){
     for(var i = num1; i >= num2; i--){
-      if(i%13 == 13) sum += i
+      var num = String(i)
+      var lastIndex = num.length-1
+      var expression = Number(num.slice(0,lastIndex)) + 4*Number(num[lastIndex])
+      if(expression == 13) sum += Number(num)
     }
   }
 
