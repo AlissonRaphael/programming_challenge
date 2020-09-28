@@ -22,7 +22,7 @@ async function init(){
   var note2 = Number()
 
   while(true){
-    var note1 = await new Promise(resolve => {
+    note1 = await new Promise(resolve => {
       interface.question(`Nota I [0 à 10]: `, input => resolve(Number(input)))
     })
 
@@ -31,7 +31,7 @@ async function init(){
   }
 
   while(true){
-    var note2 = await new Promise(resolve => {
+    note2 = await new Promise(resolve => {
       interface.question(`Nota II [0 à 10]: `, input => resolve(Number(input)))
     })
 
