@@ -8,3 +8,24 @@
  * Output
  * Print the output according to the given example.
  */
+
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var num = await new Promise(resolve => {
+    interface.question(`Insira o número: `, input => resolve(Number(input)))
+  })
+
+  for(var i = 1; i <= num; i++){
+    interface.write(`${i} ${i**2} ${i**3}\n`)
+  }
+
+  interface.close()
+}
+
+init()
