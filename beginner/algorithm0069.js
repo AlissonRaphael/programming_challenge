@@ -25,16 +25,15 @@ async function init(){
     interface.question(`Insira o número II: `, input => resolve(Number(input)))
   })
 
-  var sum = Number()
-  if(num1 < num2){
-    for(var i = num1; i <= num2; i++){
-      if(i%13 != 0) sum += i
-    }
-  }
   if(num1 > num2){
-    for(var i = num1; i >= num2; i--){
-      if(i%13 != 0) sum += i
-    }
+    var aux = num2
+    num2 = num1
+    num1 = aux
+  }
+
+  var sum = Number()
+  for(var i = num1; i <= num2; i++){
+    if(i%13 != 0) sum += i
   }
 
   interface.write(`${sum}`)
