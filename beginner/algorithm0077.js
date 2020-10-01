@@ -17,23 +17,19 @@ var interface = readline.createInterface({
 })
 
 async function init(){
-
   var numbers = await new Promise(resolve => {
     interface.question(`Insira o número: `, input => resolve(input.split(' ')))
   })
   numbers = numbers.map(num => Number(num))
 
-  var numA = numbers[0]
-  var numB = numbers[1]
-
-  while(numB <= 0){
-    numB = await new Promise(resolve => {
+  while(numbers[1] <= 0){
+    numbers[1] = await new Promise(resolve => {
       interface.question(`Insira o número: `, input => resolve(Number(input)))
     })
   }
 
   var sum = 0
-  for(var i = numA; i < (numA+numB); i++){
+  for(var i = numbers[0]; i < (numbers[0]+numbers[1]); i++){
     sum += i
   }
 
