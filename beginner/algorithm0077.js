@@ -9,3 +9,36 @@
  * The output contains only an integer value.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+
+  var numbers = await new Promise(resolve => {
+    interface.question(`Insira o número: `, input => resolve(input.split(' ')))
+  })
+  numbers = numbers.map(num => Number(num))
+
+  var numA = numbers[0]
+  var numB = numbers[1]
+
+  while(numB <= 0){
+    numB = await new Promise(resolve => {
+      interface.question(`Insira o número: `, input => resolve(Number(input)))
+    })
+  }
+
+  var sum = 0
+  for(var i = numA; i < (numA+numB); i++){
+    sum += i
+  }
+
+  interface.write(sum)
+  interface.close()
+}
+
+init()
