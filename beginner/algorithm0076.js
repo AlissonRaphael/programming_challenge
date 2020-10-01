@@ -24,13 +24,9 @@ async function init(){
     var num = await new Promise(resolve => {
       interface.question(`Insira o número: `, input => resolve(Number(input)))
     })
-    if(num == 0){
-      break
-    } else {
-      numbers.push(num)
-    }
+    if(num == 0) break
+    numbers.push(num)
   }
-
 
   for(var i = 0; i <= numbers.length; i += 1){
     for(var j = 1; j <= numbers[i]; j++){
