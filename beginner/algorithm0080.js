@@ -9,3 +9,26 @@
  * The output contains an integer value corresponding to the factorial of N.
  */
 
+
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var num = await new Promise(resolve => {
+    interface.question(': ', input => resolve(Number(input)))
+  })
+
+  var fatorial = 1
+  for(var i = num; i > 0; i--){
+    fatorial *= i
+  }
+  interface.write(`${fatorial}`)
+
+   interface.close()
+}
+
+init()
