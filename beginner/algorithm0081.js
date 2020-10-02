@@ -11,3 +11,27 @@
  * The average should be printed with two digits after the decimal point.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var ages = []
+  while(true){
+    var num = await new Promise(resolve => {
+      interface.question(': ', input => resolve(Number(input)))
+    })
+    if(num <= 0) break
+    if(num > 0) ages.push(num)
+  }
+
+  var sum = ages.reduce((sum, age) => { return sum += age }, 0)
+
+  interface.write(`${(sum/ages.length).toFixed(0)}`)
+  interface.close()
+}
+
+init()
