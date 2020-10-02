@@ -11,3 +11,8 @@
  * The value should be printed with two digits after the decimal point.
  */
 
+var result = 0
+for(var i = 1; i <= 100; i++){
+  result += 1/i
+}
+console.log(result.toFixed(2))
