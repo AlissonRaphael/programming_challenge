@@ -11,3 +11,36 @@
  * Print a line with an integer number representing the among of integer numbers that must be summed.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var numX = await new Promise(resolve => {
+    interface.question('Valor de X: ', input => resolve(Number(input)))
+  })
+
+  while(true){
+    var numZ = await new Promise(resolve => {
+      interface.question('Valor de Z: ', input => resolve(Number(input)))
+    })
+
+    if(numZ <= numX) interface.write('Inválido, insira um valor maior que X.\n')
+    if(numZ > numX) break
+  }
+
+  var sum = 0
+  var counter = 0
+  for(var i = numX; sum <= numZ; i++){
+    sum += i
+    counter += 1
+  }
+
+  interface.write(`${counter}`)
+  interface.close()
+}
+
+init()
