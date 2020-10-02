@@ -22,12 +22,9 @@ async function init(){
   })
 
   var sequence = []
-  for(var i = 0; i < sequenceQuantity; i++){
-    if(i === 0 || i === 1){
-      sequence.push(i)
-    } else {
-      sequence.push(sequence[sequence.length-2]+sequence[sequence.length-1])
-    }
+  for(var i = 2; i < sequenceQuantity; i++){
+    if(i === 0 || i === 1) sequence.push(i)
+    if(i > 1) sequence.push(sequence[sequence.length-2]+sequence[sequence.length-1])
   }
 
   interface.write(`${sequence.toString()}`)
