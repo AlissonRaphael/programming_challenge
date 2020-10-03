@@ -27,10 +27,17 @@ async function init(){
     var test = await new Promise(resolve => {
       interface.question(`Teste ${i+1}: `, input => resolve(input.split(" ")))
     })
+    var numberOfTerms = Number(test[1])
+    var num = Number(test[0])
 
     var sum = 0
-    for(var j = Number(test[0]); j < (Number(test[0])+Number(test[1])); j++){
-      if(j%2 != 0) sum += j
+    var counter = 0
+    while(counter < numberOfTerms){
+      if(num%2 != 0){
+        sum += num
+        counter += 1
+      }
+      num +=1
     }
     interface.write(`${sum}\n`)
   }
