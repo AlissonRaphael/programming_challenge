@@ -12,3 +12,38 @@
  * Print, for each test case, how many years would be necessary to the city A became greater than the city B (in inhabitants). Remember that if this time is greater than 100 it will be necessary printing the message: "Mais de 1 seculo". In each one of these cases, maybe would be interesting interrupt the counting, otherwise you'll get "Time Limit Exceeded".
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var numberOfTests = await new Promise(resolve => {
+    interface.question('Número de testes: ', input => resolve(Number(input)))
+  })
+
+  for(var i = 0; i < numberOfTests; i++){
+    var test = await new Promise(resolve => {
+      interface.question(`Teste ${i+1}: `, input => resolve(input.split(" ")))
+    })
+    var populationA = Number(test[0])
+    var populationB = Number(test[1])
+    var rateA = Number(test[2])/100
+    var rateB = Number(test[3])/100
+
+    var age = 0
+    while(populationA <= populationB){
+      populationA += Math.trunc(populationA*rateA)
+      populationB += Math.trunc(populationB*rateB)
+      age += 1
+      if(age > 100) break
+    }
+    if(age <= 100) interface.write(`${age} anos.\n`)
+    if(age > 100) interface.write('Mais de 1 século.\n')
+  }
+  interface.close()
+}
+
+init()
