@@ -9,3 +9,34 @@
  * Print the output according to the example below.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  while(true){
+    var num = await new Promise(resolve => {
+      interface.question(`Número: `, input => resolve(Number(input)))
+    })
+
+    if(num === 0) break
+
+    var sum = 0
+    var counter = 0
+    while(counter < 5){
+      if(num%2 === 0){
+        sum += num
+        counter += 1
+      }
+      num +=1
+    }
+    interface.write(`${sum}\n`)
+  }
+
+  interface.close()
+}
+
+init()
