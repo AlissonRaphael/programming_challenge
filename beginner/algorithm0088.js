@@ -28,13 +28,12 @@ async function init(){
 
     var sum = 0
     for(var j = 0; j < num; j++){
-      if(num%j === 0){
-        sum += j
-      }
+      if(num%j === 0) sum += j
     }
 
-    if(sum === num) interface.write(`${num} é um número perfeito.\n`)
-    if(sum != num) interface.write(`${num} não é um número perfeito.\n`)
+    var msg = sum === num ? `é` : `não é`
+    interface.write(`${num} ${msg} um número perfeito.\n`)
+
   }
   interface.close()
 }
