@@ -9,3 +9,34 @@
  * For each test case print the message “X eh perfeito” (X is perfect) or “X nao eh perfeito” (X isn't perfect) according with to above specification.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var testsQuantity = await new Promise(resolve => {
+    interface.question('Quantidade de testes: ', input => resolve(Number(input)))
+  })
+
+  for(var i = 1; i <= testsQuantity; i++){
+    var num = await new Promise(resolve => {
+      interface.question(`Teste ${i}: `, input => resolve(Number(input)))
+    })
+
+    var sum = 0
+    for(var j = 0; j < num; j++){
+      if(num%j === 0){
+        sum += j
+      }
+    }
+
+    if(sum === num) interface.write(`${num} é um número perfeito.\n`)
+    if(sum != num) interface.write(`${num} não é um número perfeito.\n`)
+  }
+  interface.close()
+}
+
+init()
