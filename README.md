@@ -1,9 +1,13 @@
-# Programming Challenge: Basic to Advanced
+# Programming Challenge
 
 ![GitHub](https://img.shields.io/github/license/AlissonRaphael/programming_challenge)
 ![node-lts](https://img.shields.io/node/v-lts/node-v)
 
-Inspired by [URI Online Judge](https://www.urionlinejudge.com.br/judge/en/categories), it brings together JavaScript algorithms and other challenges (Beginner, Ad-Hoc, Strings, Data Structures, mathematics, graph, computational geometry).
+This repository brings together solutions to the challenges promoted by [URI Online Judge](https://www.urionlinejudge.com.br/judge/en/categories).
+
+The URI Online Judge is a project that is being developed by the Computer Science Department of URI University. Contains more than 1000 problems divided into big categories. All problems are available in Portuguese and English.
+
+The algorithms are written in JavaScript (synchronous and asynchronous) by topics (beginner, ad-hoc, strings, data structures, paradigms, mathematics, graph, computational geometry).
 
 ## Contents
 - [Installation](#installation)
