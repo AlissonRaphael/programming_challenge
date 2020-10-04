@@ -9,3 +9,31 @@
  * For each test case print the message “X eh primo” (X is prime) or “X nao eh primo” (X isn't prime) according with to above specification.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var testsQuantity = await new Promise(resolve => {
+    interface.question('Quantidade de testes: ', input => resolve(Number(input)))
+  })
+
+  for(var i = 1; i <= testsQuantity; i++){
+    var num = await new Promise(resolve => {
+      interface.question(`Teste ${i}: `, input => resolve(Number(input)))
+    })
+
+    var sum = 0
+    for(var j = 1; j <= num; j++){
+      if(num%j === 0) sum += 1
+    }
+
+    interface.write(`${num} ${sum === 2 ? `é` : `não é`} um número primo.\n`)
+  }
+  interface.close()
+}
+
+init()
