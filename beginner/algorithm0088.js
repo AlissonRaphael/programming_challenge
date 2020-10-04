@@ -31,8 +31,7 @@ async function init(){
       if(num%j === 0) sum += j
     }
 
-    var msg = sum === num ? `é` : `não é`
-    interface.write(`${num} ${msg} um número perfeito.\n`)
+    interface.write(`${num} ${sum === num ? `é` : `não é`} um número perfeito.\n`)
 
   }
   interface.close()
