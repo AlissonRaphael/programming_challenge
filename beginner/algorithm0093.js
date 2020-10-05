@@ -9,3 +9,29 @@
  * For each position of the array N print "N[i] = Y", where i is the array position and Y is the number stored in that position.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var initialArray = []
+  for(var i = 0; i <= 19; i++){
+    initialArray.push(await new Promise(resolve => {
+      interface.question(`Posição ${i}: `, input => resolve(Number(input)))
+    }))
+  }
+
+  var finalArray = []
+  for(var i = 0; i <= 19; i++){
+    finalArray[i] = initialArray[19-i]
+  }
+
+  interface.write(`${initialArray}\n`)
+  interface.write(`${finalArray}`)
+  interface.close()
+}
+
+init()
