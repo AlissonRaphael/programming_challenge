@@ -22,24 +22,20 @@ async function init(){
   })
   
   var arr = []
-  var value = Number()
-  var index = Number()
-
   for(var i = 0; i < size; i++){
-    var newNum = await new Promise(resolve => {
+    arr.push(await new Promise(resolve => {
       interface.question('Valor: ', input => resolve(Number(input)))
-    })
-
-    if(i === 0){
-      value = newNum
-      index = i
-    }
-
-    if(newNum < value){
-      value = newNum
-      index = i
-    }
+    }))
   }
+
+  var value = arr[0]
+  var position = 0
+  arr.map((number, index) => {
+    if(number < value){
+      value = number
+      position = index
+    }
+  })
   
   interface.write(`Menor valor: ${value}\n`)
   interface.write(`Posição: ${index}\n`)
