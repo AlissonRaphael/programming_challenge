@@ -9,3 +9,39 @@
  * Print the output like the following example.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var even = []
+  var odd = []
+
+  for(var i = 0; i < 15; i++){
+    var num = await new Promise(resolve => {
+      interface.question(`Insira o número ${i+1}: `, input => resolve(Number(input)))
+    })
+
+    if(num%2 === 0) even.push(num)
+    if(num%2 != 0) odd.push(num)
+
+    if(even.length == 5){
+      interface.write(`Pares: ${even.toString()}\n`)
+      even = []
+    }
+
+    if(odd.length == 5){
+      interface.write(`Ímpares: ${odd.toString()}\n`)
+      odd = []
+    }
+  }
+
+  interface.write(`Pares: ${even.toString()}\n`)
+  interface.write(`Ímpares: ${odd.toString()}\n`)
+  interface.close()
+}
+
+init()
