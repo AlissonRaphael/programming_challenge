@@ -9,3 +9,26 @@
  * For each position of the array N print "N[i] = Y", where i is the array position and Y is the number stored in that position. Each number of N[...] must be printed with 4 digits after the decimal point.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var num = await new Promise(resolve => {
+    interface.question('Insira o número: ', input => resolve(Number(input)))
+  })
+
+  var arr = []
+  for(var i = 0; i < 100; i++){
+    arr.push(num)
+    num = num/2
+  }
+  
+  interface.write(`${arr.toString()}`)
+  interface.close()
+}
+
+init()
