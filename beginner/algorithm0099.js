@@ -35,9 +35,7 @@ async function init(){
 
   var matrix = []
   for(var i = 0; i < 4; i++){
-    interface.write(`Insira os valores da linha ${i}.\n`)
     var line = []
-
 
     for(var j = 0; j < 4; j++){
       line.push(await new Promise(resolve => {
@@ -51,9 +49,7 @@ async function init(){
     matrix.push(line)
   }
 
-  var sum = matrix[lineNumber].reduce((total, num) => {
-    return total += num
-  }, 0)
+  var sum = matrix[lineNumber].reduce((total, num) => { return total += num }, 0)
 
   if(operation === 'S') interface.write(`Soma: ${sum}`)
   if(operation === 'M') interface.write(`Média: ${sum/12}`)
