@@ -11,3 +11,53 @@ Line in Array
  * Print the calculated result (sum or average), with one digit after the decimal point.
  */
 
+var readline = require('readline')
+
+var interface = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+async function init(){
+  var lineNumber = await new Promise(resolve => {
+    interface.question(
+      'Número da linha da operação [0 à 11]: ',
+      input => resolve(Number(input))
+    )
+  })
+
+  var operation = await new Promise(resolve => {
+    interface.question(
+      'Operação a ser realizada [S-Soma, M-Média]: ',
+      input => resolve(input.toUpperCase())
+    )
+  })
+
+  var matrix = []
+  for(var i = 0; i < 4; i++){
+    interface.write(`Insira os valores da linha ${i}.\n`)
+    var line = []
+
+
+    for(var j = 0; j < 4; j++){
+      line.push(await new Promise(resolve => {
+        interface.question(
+          `Valor da Linha[${i}] Coluna[${j}]: `,
+          input => resolve(Number(input))
+        )
+      }))
+    }
+
+    matrix.push(line)
+  }
+
+  var sum = matrix[lineNumber].reduce((total, num) => {
+    return total += num
+  }, 0)
+
+  if(operation === 'S') interface.write(`Soma: ${sum}`)
+  if(operation === 'M') interface.write(`Média: ${sum/12}`)
+  interface.close()
+}
+
+init()
