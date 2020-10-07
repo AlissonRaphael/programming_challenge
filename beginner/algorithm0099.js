@@ -34,10 +34,10 @@ async function init(){
   })
 
   var matrix = []
-  for(var i = 0; i < 4; i++){
+  for(var i = 0; i < 12; i++){
     var line = []
 
-    for(var j = 0; j < 4; j++){
+    for(var j = 0; j < 12; j++){
       line.push(await new Promise(resolve => {
         interface.question(
           `Valor da Linha[${i}] Coluna[${j}]: `,
