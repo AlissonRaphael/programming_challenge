@@ -47,7 +47,7 @@ async function init(){
   }
 
   if(operation === 'S') interface.write(`Soma: ${sum}`)
-  if(operation === 'M') interface.write(`Média: ${sum/12}`)
+  if(operation === 'M') interface.write(`Média: ${sum/72}`)
   interface.close()
 }
 
