@@ -40,7 +40,7 @@ async function init(){
       })
 
       line.push(num)
-      if(j >= i+1) sum += num
+      if(j > i) sum += num
     }
 
     matrix.push(line)
