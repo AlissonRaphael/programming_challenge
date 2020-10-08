@@ -11,7 +11,6 @@
  * Print the calculated result (sum or average), with one digit after the decimal point.
  */
 
-
 var readline = require('readline')
 
 var interface = readline.createInterface({
@@ -47,7 +46,6 @@ async function init(){
     matrix.push(line)
   }
 
-  console.table(matrix)
   if(operation === 'S') interface.write(`Soma: ${sum}`)
   if(operation === 'M') interface.write(`Média: ${sum/72}`)
   interface.close()
