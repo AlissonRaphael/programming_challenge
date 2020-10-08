@@ -32,28 +32,20 @@ async function init(){
     var line = []
 
     for(var j = 0; j < 12; j++){
-      var num = Math.trunc(Math.random()*10)
+      var num = await new Promise(resolve => {
+        interface.question(
+          `Valor da Linha[${i}] Coluna[${j}]: `,
+          input => resolve(Number(input))
+        )
+      })
 
-      // var num = await new Promise(resolve => {
-      //   interface.question(
-      //     `Valor da Linha[${i}] Coluna[${j}]: `,
-      //     input => resolve(Number(input))
-      //   )
-      // })
-
-      if(i > j && i < 11-j){
-        sum += num
-        line.push(`${num}`)
-      } else {
-        line.push(num)
-      }
-
+      line.push(num)
+      if(i > j && i < 11-j) sum += num
     }
 
     matrix.push(line)
   }
 
-  console.table(matrix)
   if(operation === 'S') interface.write(`Soma: ${sum}`)
   if(operation === 'M') interface.write(`Média: ${sum/72}`)
   interface.close()
