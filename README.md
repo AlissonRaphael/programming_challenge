@@ -54,7 +54,7 @@ brew install node
 
 ### Clone
 
-Clone this repo to your local machine using `https://github.com/AlissonRaphael/algorithms.git`
+Clone this repo to your local machine using `https://github.com/AlissonRaphael/programming_challenge.git`
 
 ## Contact
 - Github: [alissonraphael](https://gist.github.com/AlissonRaphael)
